@@ -13,20 +13,35 @@ public class UserRepository {
     @Autowired
     private UserCrudRepository crud;
 
-    public List<User> getAll(){
-        return (List<User>) crud.findAll();
+    public List<User> getAll() {
+        return crud.findAll();
     }
 
-    public Optional<User> getUser(int id){
+    public Optional<User> getUserById(int id){
         return crud.findById(id);
     }
-
     public User save(User user){
-        return  crud.save(user);
+        return crud.save(user);
+    }
+    public void update(User user){
+        crud.save(user);
     }
 
-    public Optional<User> existByEmail(String email){
-        return crud.findByEmail(email);
+    public void delete(User user){
+        crud.delete(user);
+    }
+
+    public boolean emailExists(String email){
+        Optional<User> usuario= crud.findByEmail(email);
+        return usuario.isPresent();
+    }
+
+    public Optional<User> authenticateUser(String email, String password){
+        return crud.findByEmailAndPassword(email, password);
+    }
+
+    public Optional<User> getUsersByNameOrEmail(String name, String email){
+        return crud.findByNameOrEmail(name, email);
     }
 
 }

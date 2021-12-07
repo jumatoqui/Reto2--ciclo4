@@ -13,11 +13,12 @@ import java.util.Date;
 @Document(collection = "usuarios")
 public class User {
     @Id
+
     private Integer id;
     private String identification;
     private String name;
-    private Date birthtDay;
-    private String monthBirthtDay;
+    /*private Date birthtDay;
+    private String monthBirthtDay;*/
     private String address;
     private String cellPhone;
     private String email;

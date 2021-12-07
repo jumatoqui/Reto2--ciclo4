@@ -9,16 +9,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "clone")
-public class Clone {
+@Document(collection = "cleaningproducts")
+public class CleaningProduct {
     @Id
-    private Integer id;
+    private String reference;
     private String brand;
-    private String procesor;
-    private String os;
+    private String category;
     private String description;
-    private String memory;
-    private String hardDrive;
     private boolean availability = true;
     private double price;
     private int quantity;
